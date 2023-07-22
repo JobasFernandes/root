@@ -15,3 +15,22 @@ bash <(wget -qO- https://raw.githubusercontent.com/JobasFernandes/root/main/root
 ```
 
 - Agora é só fazer o logout da VPS Oracle e fazer o login usando o usuário root e senha definida!
+
+- Exemplo de comandos para abrir portas especificas na VPS
+
+```bash
+sudo iptables -F
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT    #SSH
+sudo iptables -A INPUT -p udp --dport 22 -j ACCEPT    #SSH
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT    #HTTP
+sudo iptables -A INPUT -p udp --dport 80 -j ACCEPT    #HTTP
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT   #HTTPS
+sudo iptables -A INPUT -p udp --dport 443 -j ACCEPT   #HTTPS
+sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT  #POSTGRES
+sudo iptables -A INPUT -p udp --dport 5432 -j ACCEPT  #POSTGRES
+sudo iptables -A INPUT -p tcp --dport 6379 -j ACCEPT  #REDIS
+sudo iptables -A INPUT -p udp --dport 6379 -j ACCEPT  #REDIS
+sudo service netfilter-persistent save
+```
