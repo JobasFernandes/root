@@ -19,18 +19,18 @@ bash <(wget -qO- https://raw.githubusercontent.com/JobasFernandes/root/main/root
 - Exemplo de comandos para abrir portas especificas na VPS
 
 ```bash
-sudo iptables -F
-sudo iptables -A INPUT -i lo -j ACCEPT
-sudo iptables -A OUTPUT -o lo -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 22 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 80 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 443 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 5432 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 6379 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 6379 -j ACCEPT
+sudo iptables -F &&
+sudo iptables -A INPUT -i lo -j ACCEPT &&
+sudo iptables -A OUTPUT -o lo -j ACCEPT &&
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT &&
+sudo iptables -A INPUT -p udp --dport 22 -j ACCEPT &&
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT &&
+sudo iptables -A INPUT -p udp --dport 80 -j ACCEPT &&
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT &&
+sudo iptables -A INPUT -p udp --dport 443 -j ACCEPT &&
+sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT &&
+sudo iptables -A INPUT -p udp --dport 5432 -j ACCEPT &&
+sudo iptables -A INPUT -p tcp --dport 6379 -j ACCEPT &&
+sudo iptables -A INPUT -p udp --dport 6379 -j ACCEPT &&
 sudo service netfilter-persistent save
 ```
